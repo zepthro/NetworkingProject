@@ -10,15 +10,16 @@ class Window(wx.Frame):
         panel = wx.Panel(self) 
         vbox = wx.BoxSizer(wx.VERTICAL) 
         # add a text box to the screen
-        text_read = wx.TextCtrl(self,size=(WIDTH,HEIGHT/2))
-        send_button = wx.Button(self,label="Send", pos=(0,wx.ALIGN_RIGHT))
-        send_button.Bind(wx.EVT_BUTTON, self.OnToggle)
+        self.text_read = wx.TextCtrl(self,size=(WIDTH,HEIGHT/2))
+        self.send_button = wx.Button(self,label="Send", pos=(0,wx.ALIGN_RIGHT))
+        self.send_button.Bind(wx.EVT_BUTTON, self.OnToggle)
+        # self.erase_button.Bind(wx.EVT_BUTTON, self.OnToggle_remove)
         self.Show(True)
 
     def OnToggle(self, event):
         # Handle the event in here.
         # read the user input from the button.
-        print ("Clicked")
+        print (self.text_read.GetValue())
 
 app = wx.App()
 Window(None,"CPSC 3600 Messenger App")
